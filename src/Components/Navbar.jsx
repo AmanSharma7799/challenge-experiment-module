@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import { LiaTimesSolid } from "react-icons/lia";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { MainContext } from "../Context/MainContext";
+import { handleConnectWallet } from "../Utils/connectWallet";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -60,7 +61,7 @@ const Navbar = () => {
             ) : (
               <button
                 className="inline-flex items-center py-2 px-4 bg-lime-500 text-white font-medium text-sm rounded-full hover:bg-lime-600 transition-colors duration-300"
-                onClick={connectMetamaskWithAccount}
+                onClick={() => handleConnectWallet(connectMetamaskWithAccount)}
               >
                 Connect wallet
               </button>
@@ -110,7 +111,7 @@ const Navbar = () => {
           {!account && (
             <button
               className="inline-flex items-center py-2 px-4 bg-lime-500 text-white font-medium text-sm rounded-full hover:bg-lime-600 transition-colors duration-300"
-              onClick={connectMetamaskWithAccount}
+              onClick={() => handleConnectWallet(connectMetamaskWithAccount)}
             >
               Connect wallet
             </button>
